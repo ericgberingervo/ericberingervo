@@ -292,6 +292,28 @@
   © <span id="year"></span> Eric Beringer. All rights reserved.
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.querySelectorAll('.demo-row').forEach(row => {
+  const btn = row.querySelector('.demo-play');
+  const audio = row.querySelector('audio');
+  if (!btn || !audio) return;
+
+  const playIcon = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  const pauseIcon = '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      document.querySelectorAll('audio').forEach(a => { if (a !== audio) a.pause(); });
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  audio.addEventListener('play', () => { btn.innerHTML = pauseIcon; });
+  audio.addEventListener('pause', () => { btn.innerHTML = playIcon; });
+  audio.addEventListener('ended', () => { btn.innerHTML = playIcon; });
+});
+</script>
 </body>
 </html>
