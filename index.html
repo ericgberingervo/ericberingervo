@@ -36,18 +36,54 @@
 
   .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* Nav */
-  nav {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-    background: rgba(15,23,32,0.88); backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+/* Nav */
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: rgba(15,23,32,0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.nav-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.book-btn {
+  flex: 1;
+  justify-content: flex-end;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 639px) {
+  .nav-links {
+    display: none;
   }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 4rem; }
-  .nav-name { font-family: 'Fraunces', serif; font-size: 1.15rem; }
-  .nav-links { display: flex; gap: 1.75rem; font-size: 0.9rem; color: var(--text-dim); }
-  .nav-links a:hover { color: var(--text); }
-  .nav-links { display: none; }
-  @media (min-width: 640px) { .nav-links { display: flex; } }
+}
 
   /* Waveform motif */
   .wave { display: flex; align-items: center; gap: 3px; height: 28px; }
